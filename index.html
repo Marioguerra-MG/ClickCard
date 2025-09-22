@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartão Romântico</title>
+  <link rel="stylesheet" href="/app/css/index.css">
+</head>
+<body>
+  <h1>💌 Cartão Romântico</h1>
+
+  <div class="wizard-container">
+    <!-- Passo 1: Foto -->
+    <div class="wizard-step" data-step="1">
+      <label class="file-upload-btn" for="uploadPic">Escolher Foto</label>
+      <input type="file" id="uploadPic" accept="image/*" hidden>
+      <span id="file-name">Nenhuma foto selecionada</span>
+      <div class="btn-group">
+        <button class="nextBtn">Próximo →</button>
+      </div>
+    </div>
+
+    <!-- Passo 2: Cor de fundo -->
+    <div class="wizard-step" data-step="2">
+      <label for="colorPicker">Escolha a cor de fundo:</label>
+      <input type="color" id="colorPicker" value="#ff9a9e">
+      <div class="btn-group">
+        <button class="prevBtn">← Anterior</button>
+        <button class="nextBtn">Próximo →</button>
+      </div>
+    </div>
+
+    <!-- Passo 3: Mensagem e Compartilhamento -->
+    <div class="wizard-step" data-step="3">
+      <button id="generateTextBtn">Gerar Mensagem Romântica</button>
+      <div class="btn-group">
+        <button class="prevBtn">← Anterior</button>
+        <button id="shareBtn">Baixar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cartão -->
+  <div id="card" class="card romantico">
+    <div class="card-content">
+      <img id="profilePic" class="profile-pic" alt="Foto de Perfil" src="/app/img/download.png">
+      <p id="description" class="description">Clique em "Gerar Mensagem Romântica"</p>
+    </div>
+  </div>
+
+  <div id="toast-container"></div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="/app/js/index.js"></script>
+</body>
+</html>
