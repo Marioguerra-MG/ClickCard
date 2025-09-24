@@ -1,235 +1,172 @@
+/* === Body e títulos === */
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: #fce4ec;
+  background: linear-gradient(135deg, #ece9e6, #ffffff);
   text-align: center;
-  padding: 20px;
+  padding: 30px;
+  color: #222;
 }
 
 h1 {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  color: #111;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
-/* Wizard */
-.wizard-container {
-  max-width: 400px;
-  margin: 0 auto 25px auto;
-  background: #fff;
-  padding: 25px 20px 30px 20px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+/* === Barra de progresso === */
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: #f0f0f0;
+  border-radius: 6px;
+  margin-bottom: 25px;
+  overflow: hidden;
 }
 
-.step-indicator {
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #000000, #5c5c5c);
+  border-radius: 6px;
+  transition: width 0.4s ease-in-out;
+}
+
+/* === Wizard layout === */
+.wizard-wrapper {
   display: flex;
   justify-content: center;
-  margin-bottom: 15px;
+  gap: 25px;
+  flex-wrap: wrap;
 }
 
-.step-indicator div {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #ddd;
-  margin: 0 6px;
+.wizard-container {
+  flex: 1 1 320px;
+  max-width: 420px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.step-indicator div.active {
-  background: #e91e63;
-  transform: scale(1.2);
+.wizard-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
 .wizard-step {
+  width: 100%;
   display: none;
+  animation: slideFade 0.35s ease;
 }
 
-.wizard-step.active {
+@keyframes slideFade {
+  from {opacity:0; transform: translateY(15px);}
+  to {opacity:1; transform: translateY(0);}
+}
+
+.wizard-step label {
   display: block;
+  margin-top: 18px;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
 }
 
+.wizard-step input, 
+.wizard-step select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.wizard-step input:focus, 
+.wizard-step select:focus {
+  border-color: #000;
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
+}
+
+/* === Botões === */
 .btn-group {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
+  margin-top: 25px;
 }
 
-/* Botões */
-button, .file-upload-btn {
-  margin: 5px;
-  padding: 10px 20px;
+button {
+  padding: 12px 24px;
+  margin: 6px;
   border: none;
-  border-radius: 12px;
-  background: #e91e63;
+  background: linear-gradient(135deg, #000000, #444);
   color: #fff;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 10px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 
-button:hover, .file-upload-btn:hover {
-  background: #c2185b;
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
 }
 
-/* Input file estilizado */
-.file-upload-btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background: #ff4081;
-  color: #fff;
-  border-radius: 12px;
-  cursor: pointer;
-  font-weight: bold;
-  margin-bottom: 5px;
-  transition: all 0.3s ease;
+button:hover:enabled {
+  background: linear-gradient(135deg, #333, #111);
+  transform: scale(1.05);
 }
 
-.file-upload-btn:hover {
-  background: #e91e63;
-}
-
-/* Cartão */
+/* === Cartão vertical === */
 .card {
-  width: 350px;
-  min-height: 250px;
-  margin: 20px auto;
-  border-radius: 20px;
-  color: #fff;
+  width: 150px;
+  height: 250px;
   padding: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  text-align: center;
+  border-radius: 18px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  background: linear-gradient(135deg, #ffdde1, #ffe5ec);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  background: #ff9a9e; /* cor padrão */
-  position: relative;
+  align-items: center;
 }
 
-.card-content {
-  text-align: center;
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-.profile-pic {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid rgba(255,255,255,0.7);
-  margin-bottom: 15px;
+.card.preview {
+  max-width: 150px;
+  height: 250px;
+  margin-top: 25px;
 }
 
+/* === Emoji do cartão === */
+.profile-emoji {
+  font-size: 5.5rem;
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .profile-emoji {
+  transform: scale(1.15);
+}
+
+/* === Texto do cartão limitado a 3 linhas === */
 .description {
   font-size: 1.1rem;
-  line-height: 1.4;
-}
-
-
-#toast-container {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 9999;
-}
-
-.toast {
-  background-color: #333;
-  color: #fff;
-  padding: 12px 20px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  opacity: 0;
-  transform: translateX(100%);
-  transition: all 0.5s ease;
-  font-family: sans-serif;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.toast.show {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Tipos de toast */
-.toast.success { background-color: #28a745; }
-.toast.alert   { background-color: #dc3545; }
-.toast.info    { background-color: #007bff; }
-
-
-/* Garantir que padding e border não aumentem a largura */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-/* Responsividade para tablets (largura até 768px) */
-@media (max-width: 768px) {
-  .wizard-container {
-    max-width: 90%;
-    padding: 20px;  /* padding uniforme, deixa espaço interno */
-    margin: 0 auto 25px auto; /* centraliza horizontalmente */
-  }
-
-  .card {
-    width: 100%;   /* ocupa toda a largura disponível */
-    max-width: 350px; /* limita para não esticar demais */
-    min-height: 220px;
-    padding: 15px;
-    margin: 20px auto; /* espaço em volta */
-  }
-
-  .profile-pic {
-    width: 100px;
-    height: 100px;
-    border-width: 3px;
-  }
-
-  .description {
-    font-size: 1rem;
-  }
-
-  button, .file-upload-btn {
-    padding: 8px 16px;
-    font-size: 0.9rem;
-  }
-}
-
-/* Responsividade para celulares (largura até 480px) */
-@media (max-width: 480px) {
-  body {
-    padding: 10px;
-  }
-
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  .wizard-container {
-    width: 100%;
-    padding: 15px;  /* garante espaço nas laterais */
-    margin: 0 auto 20px auto;
-  }
-
-  .card {
-    width: 100%;
-    padding: 15px;  /* aumenta o padding para não ficar grudado */
-    min-height: 200px;
-    margin: 20px auto;
-  }
-
-  .profile-pic {
-    width: 80px;
-    height: 80px;
-    border-width: 2px;
-  }
-
-  .description {
-    font-size: 0.95rem;
-  }
-
-  button, .file-upload-btn {
-    padding: 6px 12px;
-    font-size: 0.85rem;
-  }
-
-  .btn-group {
-    flex-direction: column;
-    gap: 8px;
-  }
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* limita a 3 linhas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  width: 100%;
+  color: #333;
 }

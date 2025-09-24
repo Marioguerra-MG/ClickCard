@@ -3,53 +3,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cartão Romântico</title>
+  <title>ClickCard</title>
   <link rel="stylesheet" href="/app/css/index.css">
 </head>
 <body>
-  <h1>💌 Cartão Romântico</h1>
+  <header>
+    
+  </header>
+  <h1>ClickCard</h1>
 
-  <div class="wizard-container">
-    <!-- Passo 1: Foto -->
-    <div class="wizard-step" data-step="1">
-      <label class="file-upload-btn" for="uploadPic">Escolher Foto</label>
-      <input type="file" id="uploadPic" accept="image/*" hidden>
-      <span id="file-name">Nenhuma foto selecionada</span>
-      <div class="btn-group">
-        <button class="nextBtn">Próximo →</button>
-      </div>
-    </div>
-
-    <!-- Passo 2: Cor de fundo -->
-    <div class="wizard-step" data-step="2">
-      <label for="colorPicker">Escolha a cor de fundo:</label>
-      <input type="color" id="colorPicker" value="#ff9a9e">
-      <div class="btn-group">
-        <button class="prevBtn">← Anterior</button>
-        <button class="nextBtn">Próximo →</button>
-      </div>
-    </div>
-
-    <!-- Passo 3: Mensagem e Compartilhamento -->
-    <div class="wizard-step" data-step="3">
-      <button id="generateTextBtn">Gerar Mensagem Romântica</button>
-      <div class="btn-group">
-        <button class="prevBtn">← Anterior</button>
-        <button id="shareBtn">Baixar</button>
-      </div>
-    </div>
+  <!-- Barra de progresso -->
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
   </div>
 
-  <!-- Cartão -->
-  <div id="card" class="card romantico">
-    <div class="card-content">
-      <img id="profilePic" class="profile-pic" alt="Foto de Perfil" src="/app/img/download.png">
-      <p id="description" class="description">Clique em "Gerar Mensagem Romântica"</p>
+  <div class="wizard-wrapper">
+    <div class="wizard-container">
+
+      <!-- Etapa 1: Tema -->
+      <div class="wizard-step" data-step="1">
+        <label for="themePicker">Escolha um tema:</label>
+        <select id="themePicker">
+          <option value="">--Selecione--</option>
+          <option value="romantico">Romântico</option>
+          <option value="gamer">Gamer</option>
+          <option value="comedia">Comédia</option>
+        </select>
+        <div class="btn-group">
+          <button class="nextBtn" disabled>Próximo →</button>
+        </div>
+      </div>
+
+      <!-- Etapa 2: Emoji -->
+      <div class="wizard-step" data-step="2">
+        <label for="emojiPicker">Escolha um emoji:</label>
+        <select id="emojiPicker"></select>
+        <div class="btn-group">
+          <button class="prevBtn">← Anterior</button>
+          <button class="nextBtn" disabled>Próximo →</button>
+        </div>
+      </div>
+
+      <!-- Etapa 3: Mensagem -->
+      <div class="wizard-step" data-step="3">
+        <label for="descriptionInput">Escreva sua mensagem:</label>
+        <input type="text" id="descriptionInput" placeholder="(máx. 30 caracteres)">
+
+        <label for="colorPicker">Escolha a cor de fundo:</label>
+        <input type="color" id="colorPicker" value="#ffdde1">
+
+        <label for="fontPicker">Escolha a fonte:</label>
+        <select id="fontPicker">
+          <option value="'Segoe UI', sans-serif">Padrão</option>
+          <option value="'Cursive', cursive">Cursiva</option>
+          <option value="'Courier New', monospace">Monospace</option>
+          <option value="'Comic Sans MS', cursive">Divertida</option>
+        </select>
+
+        <div class="btn-group">
+          <button class="prevBtn">← Anterior</button>
+          <button class="nextBtn">Próximo →</button>
+        </div>
+      </div>
+
+      <!-- Etapa 4: Visualização final e download -->
+      <div class="wizard-step" data-step="4">
+        <div id="card" class="card">
+          <div class="card-content">
+            <div id="profileEmoji" class="profile-emoji">💖</div>
+            <p id="description" class="description">Sua mensagem aparecerá aqui</p>
+          </div>
+        </div>
+        <div class="btn-group">
+          <button class="prevBtn">← Anterior</button>
+          <button id="shareBtn">Baixar Cartão</button>
+        </div>
+      </div>
+
     </div>
+
+    <!-- Preview lateral -->
+    <div id="cardPreview" class="card preview">
+      <div class="card-content">
+        <div id="profileEmojiPreview" class="profile-emoji">💖</div>
+        <p id="descriptionPreview" class="description">Sua mensagem aparecerá aqui</p>
+      </div>
+    </div>
+
   </div>
-
-  <div id="toast-container"></div>
-
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="/app/js/index.js"></script>
