@@ -1,0 +1,53 @@
+/* Modal background */
+.modal {
+  display: none; /* inicialmente escondido */
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.5); /* transparente escuro */
+  z-index: 1000;
+  overflow: auto;
+}
+
+/* Modal content (sidebar) */
+.modal-content {
+  background-color: #fff;
+  width: 250px;
+  height: 100%;
+  padding: 20px;
+  position: fixed;
+  left: -260px; /* fora da tela inicialmente */
+  top: 0;
+  transition: left 0.3s ease;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+}
+
+/* Mostrar modal (classe ativa) */
+.modal.active .modal-content {
+  left: 0;
+}
+
+/* Fechar botão */
+.close {
+  font-size: 24px;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.modal-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.modal-content ul li {
+  margin: 15px 0;
+}
+
+.modal-content ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
