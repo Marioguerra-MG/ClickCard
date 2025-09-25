@@ -7,14 +7,15 @@ body {
   padding: 20px;
 }
 
-header{
+header {
   display: flex;
   justify-content: start;
 }
 
-#menu{
+#menu {
   font-size: 25px;
 }
+
 h1 {
   color: #030303;
   margin-bottom: 20px;
@@ -116,7 +117,7 @@ button:hover:not(:disabled) {
   width: 300px;
   height: 400px;
   margin: 20px auto;
-  border-radius: 10px;
+  border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
@@ -131,19 +132,35 @@ button:hover:not(:disabled) {
   padding: 20px;
 }
 
+/* ===== Card Content Modernizado ===== */
 .card-content {
+  width: 100px;
+  height: 180px;
   text-align: center;
-  padding: 10px;
+  padding: 20px;
+  border-radius: 25px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(245, 245, 245, 0.9));
+  border: 2px solid rgba(214, 51, 108, 0.4);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.2),
+    inset 0 2px 6px rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
 }
 
+/* ===== Emoji Animado ===== */
 .profile-emoji {
   font-size: 60px;
   margin-bottom: 10px;
+  display: inline-block;
 }
 
+/* ===== Descrição melhorada ===== */
 .description {
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
 }
 
 /* ===== Instagram Tag ===== */
@@ -167,7 +184,7 @@ button:hover:not(:disabled) {
 }
 
 .toast {
-  background: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.8);
   color: #fff;
   padding: 10px 15px;
   margin-top: 10px;
@@ -177,13 +194,27 @@ button:hover:not(:disabled) {
 }
 
 @keyframes fadein {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeout {
-  from { opacity: 1; transform: translateY(0); }
-  to { opacity: 0; transform: translateY(-10px); }
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
 }
 
 /* ===== Etapa 3: Personalização ===== */
@@ -194,7 +225,8 @@ button:hover:not(:disabled) {
   gap: 20px;
   text-align: center;
 }
-#formGroup{
+
+#formGroup {
   display: flex;
   flex-direction: row;
 }
@@ -253,7 +285,7 @@ button:hover:not(:disabled) {
 
 .color-group .balloon:hover {
   transform: scale(1.2);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Seletor de cor personalizada */
@@ -263,7 +295,7 @@ button:hover:not(:disabled) {
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Seletor de fontes */
