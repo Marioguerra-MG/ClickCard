@@ -24,10 +24,9 @@
     <div class="modal-content">
       <span id="closeModal" class="close">&times;</span>
       <h2>Menu ClickCard</h2>
-      <p>Manutencao</p>
+      <p>Manutenção</p>
     </div>
   </div>
-
 
   <h1>ClickCard</h1>
 
@@ -65,17 +64,14 @@
       <div class="wizard-step" data-step="3">
         <h2>Personalize seu cartão</h2>
 
-        <div class="form-group">
+        <div class="form-group" id="txtDescriptionInput">
           <label for="descriptionInput">Escreva sua mensagem:</label>
           <input type="text" id="descriptionInput" placeholder="Máx. 30 caracteres" maxlength="30">
         </div>
 
-        <div class="form-group" id="formGroup">
-          <label>Cor de fundo:</label>
-          <div id="colorOptions" class="balloon-group color-group"></div>
-          <input type="color" id="customColorPicker" value="#ffffff"
-            style="width:60px; height:40px; border:none; border-radius:8px; cursor:pointer;">
-
+        <div class="form-group" id="txtDescriptionInput">
+          <label for="bgImageInput" id="fileLabelText">Escolha um plano de fundo</label>
+          <input type="file" id="bgImageInput" accept="image/*">
         </div>
 
         <div class="form-group">
@@ -94,16 +90,16 @@
         </div>
       </div>
 
-
       <!-- Etapa 4: Visualização final e download -->
       <div class="wizard-step" data-step="4">
         <h2>Seu Cartão</h2>
         <div id="card" class="card">
+          <div class="card-bg"></div> <!-- fundo desfocado real -->
           <div class="card-content">
             <div id="profileEmoji" class="profile-emoji"></div>
             <p id="description" class="description">Sua mensagem aparecerá aqui</p>
-            <div id="instagramTag">@CLICK.CARD</div>
           </div>
+          <div id="instagramTag">@CLICK.CARD</div>
         </div>
         <div class="btn-group">
           <button class="prevBtn">← Anterior</button>
@@ -112,7 +108,6 @@
       </div>
 
     </div>
-
   </div>
 
   <div id="toast-container"></div>
